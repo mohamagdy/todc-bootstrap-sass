@@ -3,7 +3,6 @@ require "todc-bootstrap-sass/version"
 module Todc
   module Bootstrap
     module Sass
-
 		  class FrameworkNotFound < StandardError; end
 
 		  def self.load!
@@ -19,7 +18,7 @@ module Todc
 		      register_rails_engine
 		      require 'todc-bootstrap-sass/rails_functions'
 		    else
-		      raise Bootstrap::FrameworkNotFound, "bootstrap-sass requires either Rails > 3.1 or Compass, neither of which are loaded"
+		      raise Bootstrap::Sass::FrameworkNotFound, "bootstrap-sass requires either Rails > 3.1 or Compass, neither of which are loaded"
 		    end
 		  end
 
@@ -46,4 +45,4 @@ module Todc
   end
 end
 
-Bootstrap::Google::Sass.load!
+Todc::Bootstrap::Sass.load!
